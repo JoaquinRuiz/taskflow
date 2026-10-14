@@ -1,0 +1,2 @@
+# Este repositorio activa los hooks del plugin equipo (marketplace harness-equipo).
+# Sin este fichero, los hooks no hacen nada aunque el plugin esté instalado.
