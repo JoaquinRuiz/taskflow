@@ -1,5 +1,11 @@
 # TaskFlow — Proyecto de test para comparativa Fable 5 vs Opus 4.8
 
+## Harness de equipo
+
+Este repositorio trae configurado el harness del equipo, el plugin `equipo` del marketplace [harness-equipo](https://github.com/JoaquinRuiz/harness-equipo), que convierte las reglas de la casa de TaskFlow en una skill con la receta para añadir endpoints y en unos hooks que, mientras trabaja el agente, protegen el `.env`, impiden añadir dependencias sin aprobación, avisan cuando un cambio rompe las capas o las dependencias y no le dejan dar la tarea por cerrada con la suite en rojo. La configuración son dos ficheros versionados: `.claude/settings.json`, que declara el marketplace y activa el plugin para este proyecto, y `.harness-equipo`, el marcador sin el cual los hooks no hacen nada aunque el plugin esté instalado.
+
+Al abrir el proyecto con Claude Code por primera vez te pedirá que confíes en la carpeta y, al aceptarlo, añadirá por su cuenta el marketplace `harness-equipo` y marcará el plugin `equipo` como activado para este proyecto, pero no lo instala: hasta que lo instales, el panel `/plugin` lo muestra con un error de caché y los hooks no actúan, así que hay que instalarlo una vez con `claude plugin install equipo@harness-equipo --scope project` dentro del repositorio, y a partir de ahí queda activo solo en este proyecto (comprobado con Claude Code 2.1.294). Si no quieres usarlo, basta con no instalarlo, o desactivarlo solo para ti con `claude plugin disable equipo@harness-equipo --scope local`, que lo apunta en `.claude/settings.local.json` (ignorado por git) sin tocar la configuración del equipo; si lo que se quiere es apagar los hooks para todos, se borra el fichero `.harness-equipo` en un commit, y la skill sigue disponible para quien quiera usarla.
+
 API REST de gestión de tareas construida con Flask + SQLAlchemy (sync) + Marshmallow.
 **Diseñada a propósito con queries de base de datos mezcladas directamente en las vistas.**
 

@@ -1,0 +1,13 @@
+{
+  "enabledPlugins": {
+    "equipo@harness-equipo": true
+  },
+  "extraKnownMarketplaces": {
+    "harness-equipo": {
+      "source": {
+        "source": "github",
+        "repo": "JoaquinRuiz/harness-equipo"
+      }
+    }
+  }
+}
